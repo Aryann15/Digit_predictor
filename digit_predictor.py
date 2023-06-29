@@ -29,8 +29,9 @@ model.save('digits model')
 
 for x in range (1,6):
     img = cv.imread(f'{x}.png')[:,:,0]
-    img=np.invert(np.array([img]))
-    prediciton= model.prediction(img)
-    print(f'The result is probably : {np.argmax(prediction)}')
+    img = np.invert(np.array([img]))
+    prediction = model.predict(img)
+    predicted_label = np.argmax(prediction)
+    print(f'The result is probably: {predicted_label}')
     plt.imshow(img[0], cmap=plt.cm.binary)
     plt.show()
